@@ -5,8 +5,10 @@ if not game:GetService("Players").LocalPlayer.Character then game:GetService("Pl
 
 local placement_service = require(game:GetService("ReplicatedStorage").src.client.Services.PlacementServiceClient)
 
+task.spawn(function()
 game:GetService("RunService").RenderStepped:Connect(function()
     pcall(function()
 placement_service.can_place = true
+end)
 end)
 end)
