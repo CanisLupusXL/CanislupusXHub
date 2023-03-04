@@ -1,0 +1,12 @@
+repeat task.wait() until game:IsLoaded()
+repeat wait()until game:GetService("Players").LocalPlayer ~= nil
+if not game:GetService("Players").LocalPlayer.Character then game:GetService("Players").LocalPlayer.CharacterAdded:Wait()wait()end
+
+
+local placement_service = require(game:GetService("ReplicatedStorage").src.client.Services.PlacementServiceClient)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+placement_service.can_place = true
+end)
+end)
