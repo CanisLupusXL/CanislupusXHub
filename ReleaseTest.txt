@@ -29,7 +29,7 @@ end
 
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Second Piece", HidePremium = false, SaveConfig = false, ConfigFolder = nil})
+local Window = OrionLib:MakeWindow({Name = "Second Piece", HidePremium = false, SaveConfig = true, ConfigFolder = nil})
 local Tab1 = Window:MakeTab({Name = "Main",Icon = nil,PremiumOnly = false})
 local PortalTab = Window:MakeTab({Name = "Portal",Icon = nil,PremiumOnly = false})
 local SkilTab = Window:MakeTab({Name = "Skill",Icon = nil,PremiumOnly = false})
