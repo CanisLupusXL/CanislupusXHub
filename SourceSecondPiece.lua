@@ -395,12 +395,12 @@ task.spawn(function ()
         if getgenv().AutoSpinFruits then        
 for i,v in pairs(game.Workspace.Shop:GetDescendants()) do
     if v.Name == "Object" then
-        if getgenv().MethodSpin == "Gem" and v.Value == "RandomDemonFruit" and game.PlaceId == 15049111150 then
+        if getgenv().AutoSpinFruits and getgenv().MethodSpin == "Gem" and v.Value == "RandomDemonFruit" and game.PlaceId == 15049111150 then
             v.Parent.HoldDuration = 0
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame * CFrame.new(0,0,0)
             game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, nil)
             game:GetService("VirtualInputManager"):SendKeyEvent(false, "E", false, nil)
-		elseif  getgenv().MethodSpin == "Beli" and v.Value == "RandomDemonFruitBeli" and game.PlaceId == 15049111150 then
+		elseif getgenv().AutoSpinFruits and getgenv().MethodSpin == "Beli" and v.Value == "RandomDemonFruitBeli" and game.PlaceId == 15049111150 then
 			v.Parent.HoldDuration = 0
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame * CFrame.new(0,0,0)
 			game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, nil)
