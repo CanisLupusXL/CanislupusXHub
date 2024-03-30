@@ -89,7 +89,7 @@ Tab2:AddButton({
 })
 
 task.spawn(function ()
-	while _G.AutoEquipTool do wait() pcall(function ()
+	while do wait() pcall(function ()
 		if _G.AutoEquipTool and not game.Players.LocalPlayer.Character:FindFirstChild(_G.Weapon) then
 			print("Equiping . . .")
 			game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(_G.Weapon))
@@ -99,7 +99,7 @@ task.spawn(function ()
 end)
 
 task.spawn(function ()
-	while _G.AutoAttack do wait() pcall(function ()
+	while do wait() pcall(function ()
 		if _G.AutoAttack and game.Players.LocalPlayer.Character:FindFirstChild(_G.Weapon) then
 			game:GetService("VirtualInputManager"):SendMouseButtonEvent(600, 10, 0, true, game, 1)
 		   end
@@ -108,7 +108,7 @@ task.spawn(function ()
 end)
 
 task.spawn(function ()
-	while _G.SkillZ do wait() pcall(function ()
+	while do wait() pcall(function ()
 		if _G.SkillZ then
 			game:GetService("VirtualInputManager"):SendKeyEvent(true, "Z", false, nil)
 			game:GetService("VirtualInputManager"):SendKeyEvent(false, "Z", false, nil)
@@ -118,7 +118,7 @@ task.spawn(function ()
 end)
 
 task.spawn(function ()
-	while _G.SkillX do wait() pcall(function ()
+	while do wait() pcall(function ()
 		if _G.SkillX then
 			game:GetService("VirtualInputManager"):SendKeyEvent(true, "X", false, nil)
 			game:GetService("VirtualInputManager"):SendKeyEvent(false, "X", false, nil)
@@ -128,7 +128,7 @@ task.spawn(function ()
 end)
 
 task.spawn(function ()
-	while _G.SkillC do wait() pcall(function ()
+	while do wait() pcall(function ()
 		if _G.SkillC then
 			game:GetService("VirtualInputManager"):SendKeyEvent(true, "C", false, nil)
 			game:GetService("VirtualInputManager"):SendKeyEvent(false, "C", false, nil)
@@ -138,7 +138,7 @@ task.spawn(function ()
 end)
 
 task.spawn(function ()
-	while _G.SkillV do wait() pcall(function ()
+	while do wait() pcall(function ()
 		if _G.SkillV then
 			game:GetService("VirtualInputManager"):SendKeyEvent(true, "V", false, nil)
 			game:GetService("VirtualInputManager"):SendKeyEvent(false, "V", false, nil)
