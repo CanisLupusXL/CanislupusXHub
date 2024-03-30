@@ -38,8 +38,8 @@ local Weaponlist = {}
 
 
 _G.SettingsUi = {
-	Weapon = nil;
-	MethodSpin = nil;
+	Weapon = bool;
+	MethodSpin = bool;
 	AutoEquipTool = false;
 	AutoAttack = false;
 	AutoChest = false;
@@ -453,48 +453,48 @@ if _G.SettingsUi.MethodSpin then
 end
 
 if _G.SettingsUi.AutoEquipTool then
-	_G.SettingsUi.AutoEquipTool = true
+	return nil
 end
 
 if _G.SettingsUi.AutoAttack then
-	_G.SettingsUi.AutoAttack = true
+	return nil
 end
 
 if _G.SettingsUi.AutoChest then
-	_G.SettingsUi.AutoChest = true
+	return nil
 end
 
 if _G.SettingsUi.AutoAllBoss then
-	_G.SettingsUi.AutoAllBoss = true
+	return nil
 end
 
 if _G.SettingsUi.SkillZ then
-	_G.SettingsUi.SkillZ = true
+	return nil
 end
 
 if _G.SettingsUi.SkillX then
-	_G.SettingsUi.SkillX = true
+	return nil
 end
 
 if _G.SettingsUi.SkillC then
-	_G.SettingsUi.SkillC = true
+	return nil
 end
 
 if _G.SettingsUi.SkillV then
-	_G.SettingsUi.SkillV = true
+	return nil
 end
 
 if _G.SettingsUi.AutoSpinFruits then
-	_G.SettingsUi.AutoSpinFruits = true
+	return nil
 end
 
 if _G.SettingsUi.AutoKenHaki then
-	_G.SettingsUi.AutoKenHaki = true
+	return nil
 end
 
 
 if _G.SettingsUi.AutoBusoHaki then
-	_G.SettingsUi.AutoBusoHaki = true
+	return nil
 end
 
 
