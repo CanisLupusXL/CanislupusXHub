@@ -132,11 +132,6 @@ end)
 
 -------Misc--------
 
-MiscConfig:NewDropdown("Select Methods", "Select Method to Spin Fruits", {"Gem","Beli"}, function(bool)
-    getgenv().MethodSpin = bool
-    updatejson()
-end)
-
 MiscConfig:NewToggle("Auto Spin Fruits", nil, function(bool)
     getgenv().AutoSpinFruits = bool
     updatejson()
