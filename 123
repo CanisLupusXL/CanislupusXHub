@@ -39,7 +39,14 @@ Tab1:AddToggle({
 	Save = true,
 	Flag = "AutoEquipTool"
 })
-print(OrionLib.Flags["AutoEquipTool"].Value)
+
+Tab1:AddButton({
+	Name = "TEST",
+	Callback = function()
+      		print(OrionLib.Flags["AutoEquipTool"].Value)
+  	end    
+})
+
 
 Tab2:AddButton({
 	Name = "Destroy Gui",
@@ -50,8 +57,8 @@ Tab2:AddButton({
 
 
 	spawn(function ()
-		while OrionLib.Flags["AutoEquipTool"].Value do wait() pcall(function ()
-			if OrionLib.Flags["AutoEquipTool"].Value and not game.Players.LocalPlayer.Character:FindFirstChild(_G.Weapon) then
+		while OrionLib.Flags["AutoEquipTool"].Value == true do wait() pcall(function ()
+			if OrionLib.Flags["AutoEquipTool"].Value == true and not game.Players.LocalPlayer.Character:FindFirstChild(_G.Weapon) then
 				game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(_G.Weapon))
 			  end
 		   end)
