@@ -1,3 +1,5 @@
+repeat wait() until game:IsLoaded()
+repeat task.wait() until game.Workspace.Lives:FindFirstChild(game.Players.LocalPlayer.Name)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Second Piece Last Update 31/03/2027", "DarkTheme")
 local Tab = Window:NewTab("Main")
@@ -203,6 +205,35 @@ function getclosest()
 	   return ClosestObject
 end
 
+task.spawn(function ()
+	while task.wait() do pcall(function ()
+		if getgenv().AutoPortal and game.PlaceId == 15049111150 then
+			for i,v in pairs(game.Workspace.World:GetChildren()) do
+				if v.Name == "Portal" then
+					for _,v2 in pairs(v:GetChildren()) do
+						if v2.Name == "1" or v2.Name == "2" or v2.Name == "3" then
+                            getgenv().STOP = true
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v2.CFrame * CFrame.new(0,-8,0)
+							for o_,v3 in pairs(v2:GetDescendants()) do
+								if v3.Name == "Frame" and v3:FindFirstChild(game.Players.LocalPlayer.Name) == nil then
+									repeat
+										task.wait()
+                                    getgenv().STOP = true
+									game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, nil)
+									game:GetService("VirtualInputManager"):SendKeyEvent(false, "E", false, nil)
+                                    getgenv().STOP = true
+								until v3:FindFirstChild(game.Players.LocalPlayer.Name) ~= nil
+								end
+							end
+						end
+					end
+					end
+				end
+			 end
+		end) 
+	end
+end)
+
 
 task.spawn(function ()
 	while task.wait() do pcall(function()
@@ -216,7 +247,7 @@ end)
 
 task.spawn(function ()
 	while task.wait(0.75) do pcall(function()
-		if getgenv().AutoAttack and game.Players.LocalPlayer.Character:FindFirstChild(getgenv().Weapon) then
+		if getgenv().AutoAttack and game.Players.LocalPlayer.Character:FindFirstChild(getgenv().Weapon) and not getgenv().STOP then
 			game:GetService("VirtualInputManager"):SendMouseButtonEvent(600, 10, 0, true, game, 1)
 		   end
 	   end)
@@ -225,9 +256,9 @@ end)
 
 task.spawn(function ()
     while task.wait() do pcall(function ()
-        if getgenv().AutoChest then
+        if getgenv().AutoChest and not getgenv().STOP then
             for i,v in pairs(game.Workspace.Chests:GetDescendants()) do
-                if v.ClassName == "ProximityPrompt" then
+                if v.ClassName == "ProximityPrompt" and not getgenv().STOP then
                     v.HoldDuration = 0
                    end
                 end            
@@ -238,9 +269,9 @@ end)
 
 task.spawn(function ()
     while task.wait() do pcall(function ()
-        if getgenv().AutoChest then
+        if getgenv().AutoChest and not getgenv().STOP then
             for i,v in pairs(game.Workspace.Chests:GetDescendants()) do
-                if v.ClassName == "ProximityPrompt" then
+                if v.ClassName == "ProximityPrompt" and not getgenv().STOP then
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame * CFrame.new(0,0,0)
                     game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, nil)
                     game:GetService("VirtualInputManager"):SendKeyEvent(false, "E", false, nil)
@@ -253,13 +284,13 @@ end)
 
 task.spawn(function ()
     while task.wait() do pcall(function ()
-        if getgenv().AutoAllBoss then
+        if getgenv().AutoAllBoss and not getgenv().STOP then
             for i,v in pairs(game.Workspace.Lives:GetChildren()) do
                 if string.find(v.Name,"Natsu") or string.find(v.Name,"Tatsumaki") or string.find(v.Name,"Artoria") or string.find(v.Name,"Sukuna") or string.find(v.Name,"Gojo") or string.find(v.Name,"Kashimo")
-				and v.Humanoid.Health > 0 then
+				and v.Humanoid.Health > 0 and not getgenv().STOP then
 					repeat wait()
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,4)
-					until v.Humanoid.Health <= 0
+					until v.Humanoid.Health <= 0 or getgenv().STOP
                   end
               end
            end
@@ -269,7 +300,7 @@ end)
 
 task.spawn(function ()
 	while task.wait(.5) do pcall(function()
-		if getgenv().AutoSkillZ then
+		if getgenv().AutoSkillZ and not getgenv().STOP then
 			game:GetService("VirtualInputManager"):SendKeyEvent(true, "Z", false, nil)
 			game:GetService("VirtualInputManager"):SendKeyEvent(false, "Z", false, nil)
 		   end
@@ -279,7 +310,7 @@ end)
 
 task.spawn(function ()
 	while task.wait(.75) do pcall(function()
-		if getgenv().AutoSkillX then
+		if getgenv().AutoSkillX and not getgenv().STOP then
 			game:GetService("VirtualInputManager"):SendKeyEvent(true, "X", false, nil)
 			game:GetService("VirtualInputManager"):SendKeyEvent(false, "X", false, nil)
 		   end
@@ -289,7 +320,7 @@ end)
 
 task.spawn(function ()
 	while task.wait(.55) do pcall(function()
-		if getgenv().AutoSkillC then
+		if getgenv().AutoSkillC and not getgenv().STOP then
 			game:GetService("VirtualInputManager"):SendKeyEvent(true, "C", false, nil)
 			game:GetService("VirtualInputManager"):SendKeyEvent(false, "C", false, nil)
 		   end
@@ -299,7 +330,7 @@ end)
 
 task.spawn(function ()
 	while task.wait(.75) do pcall(function()
-		if getgenv().AutoSkillV then
+		if getgenv().AutoSkillV and not getgenv().STOP then
 			game:GetService("VirtualInputManager"):SendKeyEvent(true, "V", false, nil)
 			game:GetService("VirtualInputManager"):SendKeyEvent(false, "V", false, nil)
 		   end
@@ -320,30 +351,17 @@ task.spawn(function ()
 end)
 
 task.spawn(function ()
-	while task.wait() do pcall(function ()
-		if getgenv().AutoPortal and game.PlaceId == 15049111150 then
-			for i,v in pairs(game.Workspace.World:GetChildren()) do
-				if v.Name == "Portal" then
-					for _,v2 in pairs(v:GetChildren()) do
-						if v2.Name == "1" or v2.Name == "2" or v2.Name == "3" then
-							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v2.CFrame * CFrame.new(0,-8,0)
-							for o_,v3 in pairs(v2:GetDescendants()) do
-								if v3.Name == "Frame" and v3:FindFirstChild(game.Players.LocalPlayer.Name) == nil then
-									repeat
-										task.wait()
-									game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, nil)
-									game:GetService("VirtualInputManager"):SendKeyEvent(false, "E", false, nil)
-								until v3:FindFirstChild(game.Players.LocalPlayer.Name) ~= nil
-								end
-							end
-						end
-					end
-					end
-				end
-			 end
-		end) 
-	end
+    while wait(2.5) do pcall(function ()
+        if getgenv().AutoPortal and game.PlaceId ~= 15049111150 and not getgenv().Started then
+            game:GetService("ReplicatedStorage").Remotes.Ready:FireServer()
+            repeat wait() until game:IsLoaded()
+            wait(.5)
+            getgenv().Started = true
+        end
+    end) 
+    end
 end)
+
 
 task.spawn(function ()
     while task.wait() do pcall(function ()
@@ -392,15 +410,15 @@ end)
 
 task.spawn(function ()
     while task.wait() do pcall(function ()
-        if getgenv().AutoSpinFruits then        
+        if getgenv().AutoSpinFruits and not getgenv().STOP then        
 for i,v in pairs(game.Workspace.Shop:GetDescendants()) do
     if v.Name == "Object" then
-        if getgenv().AutoSpinFruits and getgenv().MethodSpin == "Gem" and v.Value == "RandomDemonFruit" and game.PlaceId == 15049111150 then
+        if getgenv().AutoSpinFruits and getgenv().MethodSpin == "Gem" and v.Value == "RandomDemonFruit" and game.PlaceId == 15049111150 and not getgenv().STOP then
             v.Parent.HoldDuration = 0
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame * CFrame.new(0,0,0)
             game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, nil)
             game:GetService("VirtualInputManager"):SendKeyEvent(false, "E", false, nil)
-		elseif getgenv().AutoSpinFruits and getgenv().MethodSpin == "Beli" and v.Value == "RandomDemonFruitBeli" and game.PlaceId == 15049111150 then
+		elseif getgenv().AutoSpinFruits and getgenv().MethodSpin == "Beli" and v.Value == "RandomDemonFruitBeli" and game.PlaceId == 15049111150 and not getgenv().STOP then
 			v.Parent.HoldDuration = 0
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame * CFrame.new(0,0,0)
 			game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, nil)
