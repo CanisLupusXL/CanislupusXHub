@@ -445,56 +445,56 @@ end)
 loadSave()
 
 if _G.SettingsUi.Weapon then
-	_G.SettingsUi.Weapon = _G.SettingsUi.Weapon
+	_G.SettingsUi.Weapon = bool
 end
 
 if _G.SettingsUi.MethodSpin then
-	_G.SettingsUi.MethodSpin = _G.SettingsUi.MethodSpin
+	_G.SettingsUi.MethodSpin = bool
 end
 
 if _G.SettingsUi.AutoEquipTool then
-	_G.SettingsUi.AutoEquipTool = _G.SettingsUi.AutoEquipTool
+	_G.SettingsUi.AutoEquipTool = true
 end
 
 if _G.SettingsUi.AutoAttack then
-	_G.SettingsUi.AutoAttack = _G.SettingsUi.AutoAttack
+	_G.SettingsUi.AutoAttack = true
 end
 
 if _G.SettingsUi.AutoChest then
-	_G.SettingsUi.AutoChest = _G.SettingsUi.AutoChest
+	_G.SettingsUi.AutoChest = true
 end
 
 if _G.SettingsUi.AutoAllBoss then
-	_G.SettingsUi.AutoAllBoss = _G.SettingsUi.AutoAllBoss
+	_G.SettingsUi.AutoAllBoss = true
 end
 
 if _G.SettingsUi.SkillZ then
-	_G.SettingsUi.SkillZ = _G.SettingsUi.SkillZ
+	_G.SettingsUi.SkillZ = true
 end
 
 if _G.SettingsUi.SkillX then
-	_G.SettingsUi.SkillX = _G.SettingsUi.SkillX
+	_G.SettingsUi.SkillX = true
 end
 
 if _G.SettingsUi.SkillC then
-	_G.SettingsUi.SkillC = _G.SettingsUi.SkillC
+	_G.SettingsUi.SkillC = true
 end
 
 if _G.SettingsUi.SkillV then
-	_G.SettingsUi.SkillV = _G.SettingsUi.SkillV
+	_G.SettingsUi.SkillV = true
 end
 
 if _G.SettingsUi.AutoSpinFruits then
-	_G.SettingsUi.AutoSpinFruits = _G.SettingsUi.AutoSpinFruits
+	_G.SettingsUi.AutoSpinFruits = true
 end
 
 if _G.SettingsUi.AutoKenHaki then
-	_G.SettingsUi.AutoKenHaki = _G.SettingsUi.AutoKenHaki
+	_G.SettingsUi.AutoKenHaki = true
 end
 
 
 if _G.SettingsUi.AutoBusoHaki then
-	_G.SettingsUi.AutoBusoHaki = _G.SettingsUi.AutoBusoHaki
+	_G.SettingsUi.AutoBusoHaki = true
 end
 
 
