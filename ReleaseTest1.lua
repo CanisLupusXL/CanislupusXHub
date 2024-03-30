@@ -63,7 +63,7 @@ end
 
 local Dropdown = Tab1:AddDropdown({
 	Name = "Select Weapon",
-	Default = nil,
+	Default = _G.SettingsUi.Weapon,
 	Options = Weaponlist,
 	Callback = function(bool)
 		_G.SettingsUi.Weapon = bool
@@ -85,7 +85,7 @@ Tab1:AddButton({
 
 Tab1:AddToggle({
 	Name = "Auto Equip Select Weapon",
-	Default = nil,
+	Default = _G.SettingsUi.AutoEquipTool,
 	Callback = function(bool)
 		_G.SettingsUi.AutoEquipTool = bool
 		saveSettings()
