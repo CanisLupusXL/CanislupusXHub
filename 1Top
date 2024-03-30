@@ -1,0 +1,70 @@
+repeat wait() until game:IsLoaded()
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Second Piece", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Tab1 = Window:MakeTab({Name = "Main",Icon = nil,PremiumOnly = false})
+local PortalTab = Window:MakeTab({Name = "Portal",Icon = nil,PremiumOnly = false})
+local SkilTab = Window:MakeTab({Name = "Skill",Icon = nil,PremiumOnly = false})
+local Tab2 = Window:MakeTab({Name = "Misc",Icon = nil,PremiumOnly = false})
+local Weaponlist = {}
+
+for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+    table.insert(Weaponlist,v.Name)
+end
+
+local Dropdown = Tab1:AddDropdown({
+	Name = "Select Weapon",
+	Default = nil,
+	Options = Weaponlist,
+	Callback = function(bool)
+		_G.Weapon = bool
+	end    
+})
+
+Tab1:AddButton({
+	Name = "Refresh Weapon",
+	Callback = function()
+      		Weaponlist = {}
+  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+    table.insert(Weaponlist,v.Name)
+        end
+        Dropdown:Refresh((Weaponlist),true)
+        Dropdown:Set(nil)
+  	end    
+})
+
+Tab1:AddToggle({
+	Name = "Auto Equip Select Weapon",
+	Default = nil,
+	Save = true,
+	Flag = "AutoEquipTool"
+})
+
+Tab1:AddButton({
+	Name = "TEST",
+	Callback = function()
+      		print(OrionLib.Flags["AutoEquipTool"].Value)
+  	end    
+})
+
+
+Tab2:AddButton({
+	Name = "Destroy Gui",
+	Callback = function()
+      		OrionLib:Destroy()
+  	end    
+})
+
+
+	spawn(function ()
+		while OrionLib.Flags["AutoEquipTool"].Value == true do wait() pcall(function ()
+			if OrionLib.Flags["AutoEquipTool"].Value == true and not game.Players.LocalPlayer.Character:FindFirstChild(_G.Weapon) then
+				game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(_G.Weapon))
+			  end
+		   end)
+		end
+	end)
+
+
+
+OrionLib:Init()
