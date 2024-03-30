@@ -1,37 +1,16 @@
 repeat wait() until game:IsLoaded()
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Second Piece", HidePremium = false, SaveConfig = true, ConfigFolder = "TestKub"})
+local Window = OrionLib:MakeWindow({Name = "Second Piece", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 local Tab1 = Window:MakeTab({Name = "Main",Icon = nil,PremiumOnly = false})
 local PortalTab = Window:MakeTab({Name = "Portal",Icon = nil,PremiumOnly = false})
 local SkilTab = Window:MakeTab({Name = "Skill",Icon = nil,PremiumOnly = false})
 local Tab2 = Window:MakeTab({Name = "Misc",Icon = nil,PremiumOnly = false})
 local Weaponlist = {}
 
-
-_G.SettingsUi = {
-	Weapon = bool;
-	MethodSpin = bool;
-	AutoEquipTool = false;
-	AutoAttack = false;
-	AutoChest = false;
-	AutoAllBoss = false;
-	SkillZ = false;
-	SkillX = false;
-	SkillC = false;
-	SkillV = false;
-	AutoSpinFruits = false;
-	AutoKenHaki = false;
-	AutoBusoHaki = false;
-
-    }
-
-_G.StopAllFrame = nil
-
 for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
     table.insert(Weaponlist,v.Name)
 end
-
 
 local Dropdown = Tab1:AddDropdown({
 	Name = "Select Weapon",
