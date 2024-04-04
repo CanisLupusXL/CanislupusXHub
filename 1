@@ -991,7 +991,8 @@ task.spawn(function()
                                                                 game.Workspace.Lives:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("Humanoid")
                                                                 repeat wait()
                                                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = mon.HumanoidRootPart.CFrame * CFrame.new(0,0,4)
-                                                            until mon.Humanoid.Health == 0 or mon.Humanoid.Health < 0 or not getgenv().AutoQuest or getgenv().NoQuest or getgenv().DontAcceptQuest or getgenv().AutoBountyHunter or getgenv().STOP
+                                                            until mon.Humanoid.Health == 0 or mon.Humanoid.Health < 0 or not getgenv().AutoQuest or getgenv().NoQuest or getgenv().DontAcceptQuest 
+                                                            or getgenv().AutoBountyHunter or getgenv().STOP
                                                             if getgenv().AutoBountyHunter then
                                                                 break
                                                                 end
@@ -1343,10 +1344,8 @@ task.spawn(function()
                                     if v.ClassName == "Frame" then
                                         getgenv().QuestHuntOnCoolDown = true
                                         getgenv().InBossHunt = false
-                                        break
                                         wait(30.5)
                                         getgenv().QuestHuntOnCoolDown = false
-                                        break
                                     end
                                 end
                               end
